@@ -53,4 +53,10 @@ public class basicMathServiceImpl implements BasicMathService {
     public double divide(double firstNumber, double secondNumber) {
         return firstNumber/secondNumber;
     }
+
+    @Override
+    public double modulus(double firstNumber, double secondNumber) {
+        return firstNumber % secondNumber ;
+        
+    }
 }

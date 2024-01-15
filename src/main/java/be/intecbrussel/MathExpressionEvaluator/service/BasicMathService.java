@@ -5,4 +5,5 @@ public interface BasicMathService {
     double subtract(double firstNumber , double secondNumber);
     double multiply(double firstNumber , double secondNumber);
     double divide(double firstNumber , double secondNumber);
+    double modulus(double firstNumber , double secondNumber);
 }

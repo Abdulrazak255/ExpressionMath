@@ -121,13 +121,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
     }
     @ParameterizedTest
-    @MethodSource("basicDividFactory")
+    @MethodSource("basicDivideFactory")
     public void testBasicOfTowNumbersDivide(double firstNumber, double secondNumber, double expectedResult)
     {
         double result = basicMathService.divide(firstNumber, secondNumber);
         Assertions.assertEquals(expectedResult, result);
     }
-    public static Stream<Arguments> basicDividFactory() {
+    public static Stream<Arguments> basicDivideFactory() {
         return Stream.of(
                 Arguments.of(5, 3, 1.6666666666666667),
                 Arguments.of(50, 3, 16.666666666666668),
@@ -140,6 +140,31 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
                 Arguments.of(-0.00001, -0.00002, 0.5),
                 //Arguments.of(-0.000_01 , 0.000_02 , 0.000_01),
                 Arguments.of(5.5, 4.5, 1.2222222222222223)
+        );
+
+
+    }
+
+    @ParameterizedTest
+    @MethodSource("basicModulusFactory")
+    public void testBasicOfTowNumbersModulus(double firstNumber, double secondNumber, double expectedResult)
+    {
+        double result = basicMathService.modulus(firstNumber, secondNumber);
+        Assertions.assertEquals(expectedResult, result);
+    }
+    public static Stream<Arguments> basicModulusFactory() {
+        return Stream.of(
+                Arguments.of(5, 3, 2.0),
+                Arguments.of(50, 3, 2),
+                Arguments.of(-5, 3, -2),
+                //       Arguments.of(0, 0, 0),
+                Arguments.of(-7, -3, -1.0),
+                Arguments.of(5, -3, 2),
+                Arguments.of(4.5, 5.4, 4.5),
+                //Arguments.of(2000000000 , 4000000000L , - 2000000000),
+                Arguments.of(-0.00001, -0.00002 ,-1.0E-5),
+                //Arguments.of(-0.000_01 , 0.000_02 , 0.000_01),
+                Arguments.of(5.5, 4.5, 1)
         );
 
 
